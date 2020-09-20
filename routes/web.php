@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MemogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 // メモグ一覧画面を表示
-Route::get('/', 'MemogController＠showList');
+Route::get('/',[MemogController::class,'showList'])->name('memogs');
