@@ -16,3 +16,5 @@ use App\Http\Controllers\MemogController;
 
 // メモグ一覧画面を表示
 Route::get('/',[MemogController::class,'showList'])->name('memogs');
+// メモグ詳細画面を表示
+Route::get('/memog/{id}',[MemogController::class,'showDetail'])->name('show');
