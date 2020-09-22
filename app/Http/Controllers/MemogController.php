@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\MemogController;
+use Illuminate\Support\Facades\DB;
 
 class MemogController extends Controller
 {
@@ -13,6 +15,8 @@ class MemogController extends Controller
      */
     public function showList()
     {
-        return view('memog.list');
+        $memogs = DB::table('memogs')->get();
+
+        return view('memog.list', ['memogs' => $memogs]);
     }
 }

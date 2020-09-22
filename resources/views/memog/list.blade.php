@@ -9,14 +9,16 @@
             <th>記事番号</th>
             <th>日付</th>
             <th>タイトル</th>
-            <th></th>
+            <th>内容</th>
         </tr>
+        @foreach($memogs as $memog)
         <tr>
-            <td>1</td>
-            <td>2020/06/30</td>
-            <td>テスト</td>
-            <td></td>
+            <td>{{ $memog->id }}</td>
+            <td>{{ $memog->updated_at }}</td>
+            <td>{{ $memog->title }}</td>
+            <td>{{ $memog->content }}</td>
         </tr>
+        @endforeach
     </table>
   </div>
 </div>
