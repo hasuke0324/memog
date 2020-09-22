@@ -16,5 +16,11 @@ use App\Http\Controllers\MemogController;
 
 // メモグ一覧画面を表示
 Route::get('/',[MemogController::class,'showList'])->name('memogs');
+
+// メモグ登録画面を表示
+Route::get('/memog/create',[MemogController::class,'showCreate'])->name('create');
+// メモグ登録
+Route::post('/memog/store',[MemogController::class,'exeStore'])->name('store');
+
 // メモグ詳細画面を表示
 Route::get('/memog/{id}',[MemogController::class,'showDetail'])->name('show');

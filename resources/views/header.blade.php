@@ -5,8 +5,8 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">メモグ一覧 <span class="sr-only"></span></a>
-      <a class="nav-item nav-link" href="#">メモグ投稿</a>
+      <a class="nav-item nav-link active" href="{{ route('memogs') }}">メモグ一覧 <span class="sr-only"></span></a>
+      <a class="nav-item nav-link" href="{{ route('create') }}">メモグ投稿</a>
     </div>
   </div>
 </nav>
