@@ -14,12 +14,14 @@
             <th>記事番号</th>
             <th>タイトル</th>
             <th>日付</th>
+            <th></th>
         </tr>
         @foreach($memogs as $memog)
         <tr>
             <td>{{ $memog->id }}</td>
             <td><a href="/memog/{{ $memog->id }}">{{ $memog->title }}</a></td>
             <td>{{ $memog->updated_at }}</td>
+            <td><button type="button" class="btn-primary" onclick="location.href='/memog/edit/{{ $memog->id }}'">編集</button></td>
         </tr>
         @endforeach
     </table>

@@ -24,3 +24,8 @@ Route::post('/memog/store',[MemogController::class,'exeStore'])->name('store');
 
 // メモグ詳細画面を表示
 Route::get('/memog/{id}',[MemogController::class,'showDetail'])->name('show');
+
+// メモグ編集画面を表示
+Route::get('/memog/edit/{id}',[MemogController::class,'showEdit'])->name('edit');
+// メモグ登録
+Route::post('/memog/update',[MemogController::class,'exeUpdate'])->name('update');
