@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Memog;
+use App\Models\Models\Memog;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

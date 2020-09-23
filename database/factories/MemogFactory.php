@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Memog;
+use App\Models\Models\Memog;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
