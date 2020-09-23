@@ -68,4 +68,48 @@ class MemogController extends Controller
         \Session::flash('err_msg', 'ブログを登録しました。');
         return redirect(route('memogs'));
     }
+    /**
+     * メモグ編集フォームを表示する
+     * @param int $id
+     * @return view
+     */
+    public function showEdit($id)
+    {
+        $memog = DB::table('memogs')->find($id);
+
+        if (is_null($memog)) {
+            \Session::flash('err_msg', 'データがありません。');
+            return redirect(route('memogs'));
+        }
+
+        return view('memog.edit', ['memog' => $memog]);
+    }
+    /**
+     * メモグを更新する
+     * 
+     * @return view
+     */
+    public function exeUpdate(MemogRequest $request)
+    {
+        // メモグのデータを受け取る
+        $inputs = $request->all();
+
+        \DB::beginTransaction();
+        try {
+            // メモグを更新
+            $memog = Memog::find($inputs['id']);
+            $memog->fill([
+                'title' => $inputs['title'],
+                'content' => $inputs['content'],
+            ]);
+            $memog->save();
+            \DB::commit();
+        } catch(\Throwable $e) {
+            \DB::rollback();
+            abort(500);
+        }
+
+        \Session::flash('err_msg', 'ブログを更新しました。');
+        return redirect(route('memogs'));
+    }
 }
