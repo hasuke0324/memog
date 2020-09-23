@@ -112,4 +112,26 @@ class MemogController extends Controller
         \Session::flash('err_msg', 'ブログを更新しました。');
         return redirect(route('memogs'));
     }
+    /**
+     * メモグ削除
+     * @param int $id
+     * @return view
+     */
+    public function exeDelete($id)
+    {
+        if (empty($id)) {
+            \Session::flash('err_msg', 'データがありません。');
+            return redirect(route('memogs'));
+        }
+
+        try{
+            // ブログを削除
+            Memog::destroy($id);
+        } catch(\Throwable $e) {
+            abort(500);
+        }
+
+        \Session::flash('err_msg', '削除しました。');
+        return redirect(route('memogs'));
+    }
 }

@@ -29,3 +29,6 @@ Route::get('/memog/{id}',[MemogController::class,'showDetail'])->name('show');
 Route::get('/memog/edit/{id}',[MemogController::class,'showEdit'])->name('edit');
 // メモグ登録
 Route::post('/memog/update',[MemogController::class,'exeUpdate'])->name('update');
+
+// メモグ削除
+Route::post('/memog/delete/{id}',[MemogController::class,'exeDelete'])->name('delete');
